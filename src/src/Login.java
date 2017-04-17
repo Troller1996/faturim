@@ -113,6 +113,11 @@ public class Login extends javax.swing.JFrame {
         m.setVisible(true);
         
         this.dispose();}
+       else if(jTextField1.getText().equalsIgnoreCase("admin")&&jPasswordField1.getText().equalsIgnoreCase("1234")){
+       adminMenu admin=new adminMenu();
+       admin.setVisible(true);
+       this.dispose();
+       }
        else jLabel3.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
