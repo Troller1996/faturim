@@ -5,6 +5,8 @@
  */
 package src;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author USER
@@ -16,7 +18,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
-      
+     this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**

@@ -25,7 +25,7 @@ Connection conn = null;
     public Login() {
         initComponents();
         jLabel3.setVisible(FALSE);
-
+this.setLocationRelativeTo(null);
     
         
     
@@ -99,7 +99,7 @@ Connection conn = null;
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(433, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +122,7 @@ Connection conn = null;
                 .addComponent(jButton1)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(404, 404, 404))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -174,7 +174,7 @@ ResultSet rs2 = ps3.executeQuery();
 
       while (rs2.next()) {
   c=rs2.getString("PASSWORD");
-}      JOptionPane.showMessageDialog(null, "ms");
+}      
       System.out.println(c);
       if(jTextField1.getText().equals("a")){
         Menu m=new Menu();
