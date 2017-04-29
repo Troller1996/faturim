@@ -5,6 +5,7 @@
  */
 package src;
 
+import java.io.IOException;
 import static java.lang.Boolean.FALSE;
 import java.sql.*;
 import java.util.logging.Level;
@@ -17,19 +18,23 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
 Connection conn = null;
    Statement stmt = null;
-      String DB_URL = "jdbc:derby://localhost:1527/DB";
-    String JDBC_DRIVER = "org.apache.derby.jdbc.ClientDriver";
+  
     /**
      * Creates new form Menu
      */
-    public Login() {
+    public Login()  {
         initComponents();
         jLabel3.setVisible(FALSE);
 this.setLocationRelativeTo(null);
+   
+    try {
+        Process process = Runtime.getRuntime().exec("C:\\xampp\\mysql\\bin\\mysqld.exe");
+    } catch (IOException ex) {
+        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+    }
     
-        
-    
-       
+   
+        conn = DbConnect.Connect();
     
     }
 
@@ -99,12 +104,12 @@ this.setLocationRelativeTo(null);
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,8 +126,7 @@ this.setLocationRelativeTo(null);
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(28, 28, 28)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -130,10 +134,8 @@ this.setLocationRelativeTo(null);
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       try {        
-      
-    Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
-
-        conn = DriverManager.getConnection(DB_URL,"dtb","dtb");
+   
+        conn = DbConnect.Connect();
  
           stmt = conn.createStatement();
           String a=jTextField1.getText();
