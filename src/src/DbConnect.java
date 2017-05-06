@@ -1,6 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties. * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package src;
@@ -23,10 +22,10 @@ public static Connection Connect()
 {Connection conn = null;
 Statement s=null;
     try {
-        String url="jdbc:mysql://localhost:3306/dtb";
+        String url="jdbc:mysql://192.168.3.89:3306/dtb";
         Properties prop=new Properties();
-        prop.setProperty("user","root");
-        prop.setProperty("password","");
+        prop.setProperty("user","username");
+        prop.setProperty("password","password");
       
      
         
